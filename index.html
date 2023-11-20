@@ -155,38 +155,37 @@
             <div class="part" style="overflow-y: auto">
                 <div class="instructions">
                     <h1><img src="assets/mistletoe.png" style="vertical-align: middle" /> Ti, ti, Božiček</h1>
-                    <p>No signup, no email, no bullshit. Just a straightforward <a href="https://github.com/arcanis/secretsanta">open-source</a> tool to help you generate your secret santa pairings. One static page, and that's it.</p>
-                    <p>In the most common case (no exclusion rules, pair each guest with another at random), enter the name of your guests one line at a time. Once done, press "generate" and you're all set: send the generated links to your guests (by mail, chat, whatever floats your boat) and their pairing will be revealed to them (and only them) once they open the link.</p>
-                    <h2>Where does this tool come from?</h2>
-                    <p>I wanted to make a Secret Santa over Facebook without having to reveal to anyone my guests email addresses (so nothing that would require a backend). I also wanted not to know who was paired with me, so I had to find a way to somehow obfuscate the information. And being a developer, well, my first thought was "Let's AES it, for fun and profits!". Classic.</p>
+                    <p>Brez prijave, brez emailov, samo enostaven Božičkov algoritem, ki ti pomaga pripraviti pare za darila. </p>
+                    <p>V običajnem primeru (brez izjem, torej naključno poveži osebe s seznama), vpiši imena oseb ena po ena in po tem pritisni "poveži" in to je to: razdeli povezave med goste (po mailu, whatsapp ali karkoli v bistvu) in njihov par se bo prikazal (samo njim), ko odprejo povezavo.</p>
+                
                 </div>
             </div>
 
             <form id="form" class="part">
                 <textarea id="input" class="input" autofocus></textarea>
-                <button type="submit" class="generate">Generate your pairings</button>
+                <button type="submit" class="generate">Poveži osebe!</button>
                 <div id="result" class="result none"></div>
             </form>
 
         </div>
 
         <script id="input-placeholder" type="text/placeholder">
-            # You can add a user by adding a line
-            Santa
+            # Dodaj osebo, vsako v svojo vrsto
+            Božiček
 
-            # You can add some details if you want to, using parentheses after the name
-            Nicholas (the elf)
+            # Če želiš lahko dodaš tudi kakšno informacijo, z uporabo oklepajev po imenu
+            Jožek (škrat)
 
-            # You can prevent someone from being paired with someone else
-            Maël !Aurélie
-            Aurélie !Maël
+            # Lahko onemogočiš, da se nekdo poveže s kom 
+            Simon !Maria
+            Maria !Simon
 
-            # You can also exclude someone from being paired with multiple people
-            # Careful: too many exclusion rules can make your secret santa less interesting!
-            Rudolph !Santa !Nicholas (the elf)
+            # Lahko tudi onemogočiš, da se nekdo poveže z več drugimi
+            # Ampak pazi: preveč izjem tukaj, lahko naredi vse skupaj malo brezveze!
+            Simon !Maria !Jožek (škrat)
 
-            # You can also cheat a bit and force someone to be paired with another
-            Nicholas (the saint) =Nicholas (the elf)
+            # Lahko pa tudi malo švinlaš in narediš fiksno povezavo
+            Jožek (škrat) =Jožef (Marijin mož)
 
             ...
         </script>
@@ -408,7 +407,7 @@
 
           var name = e.currentTarget.getAttribute( 'data-name' );
 
-          if ( ! confirm( 'If you click this link, you will be revealed ' + name + '\'s pairing! Are you sure you want to do this? Only do this if you\'re actually ' + name + '.\n\nUse right-click to copy the link target instead.' ) ) {
+          if ( ! confirm( 'Ko pritisneš to povezavo, se ti bo pokazalo za koga naj kupi darilo ' + name + '\'! A si prepričan/a da si želiš to videti? Prosim klikni samo, če si ti res ' + name + '.\n\n Drugače pritisni desno tipko, kopiraj povezavo in jo deli naprej.' ) ) {
               e.preventDefault();
           }
 
